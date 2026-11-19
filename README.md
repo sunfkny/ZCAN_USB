@@ -37,13 +37,13 @@ kernel driver. This driver exposes the device as standard SocketCAN interfaces
 # Arch Linux
 sudo pacman -S linux-headers can-utils
 
-# Ubuntu / Debian
-sudo apt install linux-headers-$(uname -r) linux-modules-extra-$(uname -r) can-utils
+# Debian
+sudo apt install git build-essential linux-headers-$(uname -r) can-utils
+
+# Ubuntu
+sudo apt install git build-essential linux-headers-$(uname -r) linux-modules-extra-$(uname -r) can-utils
 ```
 
-> On Ubuntu, `can-dev` lives in `linux-modules-extra`, which is not installed
-> by default on cloud/minimal images — without it `insmod` fails with
-> unknown-symbol errors for `alloc_candev`, `open_candev` and friends.
 
 ---
 
@@ -63,7 +63,10 @@ sudo insmod zcan_usb.ko
 > modules for the *new* kernel before it will build and load again:
 >
 > ```bash
+> # Ubuntu
 > sudo apt install --reinstall linux-headers-$(uname -r) linux-modules-extra-$(uname -r)
+> # Debian
+> sudo apt install --reinstall linux-headers-$(uname -r)
 > sudo reboot
 > ```
 
