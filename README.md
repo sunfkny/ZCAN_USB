@@ -52,8 +52,8 @@ sudo apt install linux-headers-$(uname -r) linux-modules-extra-$(uname -r) can-u
 ### Manual
 
 ```bash
-git clone https://github.com/youruser/zcan_usb
-cd zcan_usb
+git clone https://github.com/roema/ZCAN_USB.git
+cd ZCAN_USB
 make
 sudo modprobe can_dev
 sudo insmod zcan_usb.ko
